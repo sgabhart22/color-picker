@@ -2,8 +2,11 @@
 name = "color_picker"
 version = "0.1.1"
 authors = ["Spencer Gabhart"]
-
-
-
 [dependencies]
 rand = "0.3.0"
+
+piston = "0.32.0"
+piston_window = "0.65.0"
+pistoncore-glutin_window = "0.36.0"
+piston2d-opengl_graphics = "0.43.0"
+piston2d-graphics = "0.21.1"
