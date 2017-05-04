@@ -29,6 +29,11 @@ impl App {
             use graphics::*;
             clear([1.0; 4], g);
 
+        let mut line = line::Line::new(graphics::color::BLACK, 1.0);
+        let griddy = grid::Grid{ cols: 10, rows: 10, units: 25.0};
+        
+        griddy.draw(&line, &c.draw_state, c.transform, g);
+
         }); // draw
     } // on_render
 
