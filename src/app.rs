@@ -27,12 +27,14 @@ impl App {
                      gl: &mut GlGraphics) {
         gl.draw(args.viewport(), |c, g| {
             use graphics::*;
-            clear([1.0; 4], g);
+            clear(color::grey(0.9), g);
 
-        let mut line = line::Line::new(graphics::color::BLACK, 1.0);
+        let center = c.transform.trans(320.0, 240.0);
+
+        let mut line = line::Line::new(color::BLACK, 1.0);
         let griddy = grid::Grid{ cols: 10, rows: 10, units: 25.0};
         
-        griddy.draw(&line, &c.draw_state, c.transform, g);
+        griddy.draw(&line, &c.draw_state, center.trans(-130.0, -120.0), g);
 
         }); // draw
     } // on_render
