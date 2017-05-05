@@ -12,6 +12,9 @@ const GREEN:  [f32; 4] = [0.0, 1.0, 0.0, 1.0];
 const BLUE:   [f32; 4] = [0.0, 0.0, 1.0, 1.0];
 const INDIGO: [f32; 4] = [0.5019, 0.0, 0.5019, 1.0];
 const VIOLET: [f32; 4] = [0.9333, 0.5098, 0.9333, 1.0];
+const PINK:   [f32; 4] = [1.0, 0.7529, 0.7961, 1.0];
+const SEA:    [f32; 4] = [0.1255, 0.6980, 0.6667, 1.0];
+const MAROON: [f32; 4] = [0.5019, 0.0, 0.0, 1.0];
 
 struct Vec2f {
     x: f64,
@@ -40,21 +43,22 @@ impl App {
         let center = c.transform.trans(320.0, 240.0);
 
         let mut line = line::Line::new(color::BLACK, 1.0);
-        let griddy = grid::Grid{ cols: 10, rows: 10, units: 25.0};
+        let griddy = grid::Grid{ cols: 10, rows: 10, units: 35.0};
         
-        griddy.draw(&line, &c.draw_state, center.trans(-130.0, -120.0), g);
+        griddy.draw(&line, &c.draw_state, center.trans(-180.0, -175.0), g);
 
         let mut color = RED;
-        let mut x = 191.0;
-        let mut y = 121.0;
 
-        for m in 0..7		 {
+        let mut x = 141.0;
+        let mut y = 66.0;
+
+        for m in 0..10 {
             for n in 0..10 {
             let rect = Rectangle::new(color);
-            let dims = rectangle::square(x, y, 23.0);
+            let dims = rectangle::square(x, y, 33.0);
             rect.draw(dims, &c.draw_state, c.transform, g);
             
-            x += 25.0;
+            x += 35.0;
             color[3] -= 0.09;
             }
 
@@ -65,12 +69,16 @@ impl App {
                 3 => color = BLUE,
                 4 => color = INDIGO,
                 5 => color = VIOLET,
+                6 => color = PINK,
+                7 => color = SEA,
+                8 => color = MAROON,
                 _ => color = color::WHITE
-            }; // match
+            };  // match
 
-            x = 191.0;
-            y += 25.0;
-        }
+            x = 141.0;
+            y += 35.0;
+        } // for
+
 
     
         }); // draw
