@@ -72,7 +72,6 @@ impl App {
             y += 25.0;
         }
 
-        // orange = [1.0, 0.6471, 0.0, 1.0];
     
         }); // draw
     } // on_render
