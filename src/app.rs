@@ -36,6 +36,22 @@ impl App {
         
         griddy.draw(&line, &c.draw_state, center.trans(-130.0, -120.0), g);
 
+        let mut rc: types::ColorComponent = 1.0;
+        let mut gc: types::ColorComponent = 0.0;
+        let mut bc: types::ColorComponent = 0.0;
+        let mut a: types::ColorComponent = 1.0;
+        let mut x = 191.0;
+        let mut y = 121.0;
+
+        for n in 0..10 {
+            let rect = Rectangle::new([rc, gc, bc, a]);
+            let dims = rectangle::square(x, y, 23.0);
+            rect.draw(dims, &c.draw_state, c.transform, g);
+            
+            x += 25.0;
+            a -= 0.1;
+        }
+
         }); // draw
     } // on_render
 
