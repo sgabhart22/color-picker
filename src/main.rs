@@ -12,7 +12,6 @@ use glutin_window::GlutinWindow;
 use opengl_graphics::{ GlGraphics, OpenGL };
 use std::path::Path;
 
-mod color;
 mod app;
 mod settings;
 
