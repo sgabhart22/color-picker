@@ -5,6 +5,14 @@ use opengl_graphics::glyph_cache::GlyphCache;
 
 use settings;
 
+const RED:    [f32; 4] = [1.0, 0.0, 0.0, 1.0];
+const ORANGE: [f32; 4] = [1.0, 0.6471, 0.0, 1.0];
+const YELLOW: [f32; 4] = [1.0, 1.0, 0.0, 1.0];
+const GREEN:  [f32; 4] = [0.0, 1.0, 0.0, 1.0];
+const BLUE:   [f32; 4] = [0.0, 0.0, 1.0, 1.0];
+const INDIGO: [f32; 4] = [0.5019, 0.0, 0.5019, 1.0];
+const VIOLET: [f32; 4] = [0.9333, 0.5098, 0.9333, 1.0];
+
 struct Vec2f {
     x: f64,
     y: f64
@@ -36,22 +44,36 @@ impl App {
         
         griddy.draw(&line, &c.draw_state, center.trans(-130.0, -120.0), g);
 
-        let mut rc: types::ColorComponent = 1.0;
-        let mut gc: types::ColorComponent = 0.0;
-        let mut bc: types::ColorComponent = 0.0;
-        let mut a: types::ColorComponent = 1.0;
+        let mut color = RED;
         let mut x = 191.0;
         let mut y = 121.0;
 
-        for n in 0..10 {
-            let rect = Rectangle::new([rc, gc, bc, a]);
+        for m in 0..7		 {
+            for n in 0..10 {
+            let rect = Rectangle::new(color);
             let dims = rectangle::square(x, y, 23.0);
             rect.draw(dims, &c.draw_state, c.transform, g);
             
             x += 25.0;
-            a -= 0.1;
+            color[3] -= 0.09;
+            }
+
+            match m {
+                0 => color = ORANGE,
+                1 => color = YELLOW,
+                2 => color = GREEN,
+                3 => color = BLUE,
+                4 => color = INDIGO,
+                5 => color = VIOLET,
+                _ => color = color::WHITE
+            }; // match
+
+            x = 191.0;
+            y += 25.0;
         }
 
+        // orange = [1.0, 0.6471, 0.0, 1.0];
+    
         }); // draw
     } // on_render
 
