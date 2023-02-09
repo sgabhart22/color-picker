@@ -1,7 +1,6 @@
 use piston::input::*;
 use graphics;
-use opengl_graphics::GlGraphics;
-use opengl_graphics::glyph_cache::GlyphCache;
+use opengl_graphics::{GlGraphics, GlyphCache};
 
 use settings;
 

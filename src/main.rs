@@ -23,7 +23,6 @@ fn main() {
         WindowSettings::new("Color Picker",
             [(settings.wind_size.x as u32), (settings.wind_size.y as u32)])
         .exit_on_esc(true)
-        .opengl(opengl)
         .build()
         .unwrap();
     let ref mut gl = GlGraphics::new(opengl);
