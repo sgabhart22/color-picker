@@ -43,7 +43,7 @@ impl App {
 
         let mut line = line::Line::new(color::BLACK, 1.0);
         let griddy = grid::Grid{ cols: 10, rows: 10, units: 35.0};
-        
+
         griddy.draw(&line, &c.draw_state, center.trans(-180.0, -175.0), g);
 
         let mut color = RED;
@@ -56,7 +56,7 @@ impl App {
             let rect = Rectangle::new(color);
             let dims = rectangle::square(x, y, 33.0);
             rect.draw(dims, &c.draw_state, c.transform, g);
-            
+
             x += 35.0;
             color[3] -= 0.09;
             }
@@ -79,16 +79,16 @@ impl App {
         } // for
 
 
-    
+
         }); // draw
     } // on_render
 
     pub fn on_button_press(&mut self, button: &Button) {
-        
+
     } // on_button_press
 
     fn on_mouse_click(&mut self, button: &MouseButton) {
-        
+
     } // on_mouse_click
 
     pub fn on_mouse_move(&mut self, args: &[f64; 2]) {
